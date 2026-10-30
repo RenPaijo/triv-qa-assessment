@@ -1,0 +1,25 @@
+# Maven and IDE
+**/target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Generated execution evidence (curated final evidence is included)
+Automation/reports/*
+!Automation/reports/.gitkeep
+!Automation/reports/EXECUTION_REPORT.md
+!Automation/reports/final-evidence/
+!Automation/reports/final-evidence/**
+!Automation/reports/historical-evidence/
+!Automation/reports/historical-evidence/**
+
+# Never commit a live one-time code or local secret handoff
+Automation/reports/otp*
+
+# Local configuration and sensitive data
+.env
+*.log
+.DS_Store

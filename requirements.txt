@@ -1,0 +1,298 @@
+PAGE 1
+QA Engineer — Technical
+Assessment
+Position: Quality Assurance Engineer
+Deadline: 3 Hari (72 Jam)
+Assessment: Test Case Design & Mobile Automation Testing
+Overview
+Technical assessment ini bertujuan mengevaluasi kemampuan kandidat dalam
+memahami business requirements, menyusun test case, dan
+mengimplementasikan automation testing pada aplikasi mobile.
+Part A — Test Case Design
+Case Study: Withdraw Rupiah
+1. Background
+Sebuah aplikasi dompet digital menyediakan fitur Withdraw Rupiah, yaitu fitur
+yang memungkinkan pengguna menarik saldo Rupiah dari dompet digital ke
+rekening bank yang sudah terdaftar.
+Pengguna dapat memasukkan nominal withdrawal, memeriksa detail transaksi,
+melakukan verifikasi OTP, dan melihat status transaksi setelah diproses.
+Sebagai QA Engineer, anda diminta membuat test case berdasarkan business
+requirements berikut.
+2. Dummy User Data
+Field Value
+User ID QA001
+Username dummy_user
+QA Engineer — Technical Assessment
+1
+
+PAGE 2
+Field Value
+Initial Balance Rp200.000
+Bank Name BCA
+Account Number 1234567890
+Account Holder Budi QA
+Valid OTP 123456
+OTP Expiration 60 seconds
+Admin Fee Rp2.500
+Semua informasi di atas merupakan data dummy untuk kebutuhan assessment.
+3. Business Requirements
+A. Withdrawal Amount
+1. Minimum withdrawal adalah Rp10.000.
+2. Maximum withdrawal adalah Rp100.000 per transaksi.
+3. Biaya administrasi adalah Rp2.500 untuk setiap transaksi.
+4. Saldo pengguna harus mencukupi nominal withdrawal beserta biaya
+administrasi.
+5. Nominal withdrawal wajib diisi dan harus berupa bilangan bulat positif.
+6. Jika nominal tidak memenuhi ketentuan, sistem harus menolak transaksi dan
+menampilkan pesan validasi.
+B. Bank Account
+1. Withdrawal hanya dapat dilakukan ke rekening bank yang telah terdaftar dan
+terverifikasi.
+2. Pengguna wajib memilih rekening tujuan sebelum melanjutkan transaksi.
+3. Nama bank, nomor rekening tersamarkan, dan nama pemilik rekening harus
+ditampilkan pada halaman konfirmasi.
+4. Transaksi tidak dapat dilanjutkan jika rekening tujuan tidak tersedia atau tidak
+valid.
+QA Engineer — Technical Assessment
+2
+
+PAGE 3
+C. OTP Verification
+1. Setiap transaksi withdrawal wajib melalui verifikasi OTP.
+2. OTP terdiri dari 6 digit angka.
+3. OTP berlaku selama 60 detik sejak diterbitkan.
+4. OTP yang salah atau kedaluwarsa harus ditolak.
+5. OTP hanya dapat digunakan satu kali.
+6. Transaksi tidak dapat diproses apabila verifikasi OTP gagal.
+D. Withdrawal Confirmation
+Sebelum melakukan konfirmasi akhir, sistem harus menampilkan:
+Nominal withdrawal.
+Rekening bank tujuan.
+Biaya administrasi.
+Total saldo yang akan dipotong.
+Contoh perhitungan:
+Description Amount
+Withdrawal Amount Rp50.000
+Admin Fee Rp2.500
+Total Deduction Rp52.500
+Initial Balance Rp200.000
+Remaining Balance Rp147.500
+E. Transaction Status & Balance
+1. Setelah OTP valid, sistem memproses transaksi withdrawal.
+2. Transaksi dapat memiliki status Pending, Completed, atau Failed.
+3. Pending: transaksi sedang diproses dan tidak boleh disubmit ulang sebagai
+transaksi baru hanya karena pengguna menekan tombol kembali atau
+mencoba lagi.
+QA Engineer — Technical Assessment
+3
+
+PAGE 4
+4. Completed: transaksi berhasil dan total saldo yang dipotong sesuai nominal
+withdrawal ditambah biaya admin.
+5. Failed: transaksi gagal dan tidak boleh mengakibatkan kehilangan saldo
+pengguna. Jika sebelumnya terdapat saldo yang ditahan, saldo tersebut harus
+dikembalikan.
+6. Transaksi yang sama tidak boleh menyebabkan pemotongan saldo lebih dari
+satu kali.
+7. Riwayat transaksi harus menampilkan nominal, rekening tujuan, status, dan
+informasi transaksi yang sesuai.
+4. Assignment
+Berdasarkan seluruh requirement di atas, buat minimal 12 test case.
+Test case wajib mencakup pengujian berikut:
+Category Scope
+Positive Testing Withdrawal valid dan berhasil
+Negative Testing Input tidak valid dan transaksi ditolak
+Boundary Value Testing Minimum dan maximum withdrawal
+Balance Validation Perhitungan saldo dan biaya admin
+Bank Validation Rekening tujuan valid dan tidak valid
+OTP Verification OTP valid, salah, expired, dan reuse
+Transaction Validation Status Completed dan Failed
+Duplicate Prevention Pencegahan transaksi atau debit ganda
+Kandidat diperbolehkan menambahkan test case di luar jumlah minimum untuk
+mencakup edge cases lainnya.
+5. Test Case Format
+Gunakan format berikut:
+Column Description
+Test Case ID Unique ID
+Feature Nama fitur
+QA Engineer — Technical Assessment
+4
+
+PAGE 5
+Column Description
+Test Scenario Skenario pengujian
+Test Type Positive / Negative / Boundary
+Priority High / Medium / Low
+Preconditions Kondisi awal
+Test Steps Langkah-langkah pengujian
+Test Data Data yang digunakan
+Expected Result Hasil yang seharusnya
+Actual Result N/A — Design Only
+Status Not Executed
+Expected Deliverables:
+File Test_Cases.xlsx atau Test_Cases.csv.
+Test case memiliki langkah dan expected result yang jelas.
+Tidak perlu membuat aplikasi atau menjalankan test case pada aplikasi
+sebenarnya.
+Note: Jika menemukan requirement yang ambigu atau kurang lengkap,
+dokumentasikan asumsi maupun pertanyaan klarifikasinya dalam dokumen yang
+sama.
+Part B — Mobile Automation Testing
+Case Study: TRIV Mobile App — Login & Register
+1. Background
+Sebagai QA Engineer, anda diminta untuk mengimplementasikan Mobile UI
+Automation Testing pada fitur Login dan Register di aplikasi TRIV.
+Pengujian dilakukan pada aplikasi yang tersedia, aplikasi dapat diakses dan
+didownload melalui play store ataupun app store.
+2. Technology Stack
+QA Engineer — Technical Assessment
+5
+
+PAGE 6
+Gunakan framework berikut:
+Component Technology
+Programming Language Java
+Mobile Automation Appium
+Test Framework Cucumber
+Scenario Definition Gherkin
+Build & Dependency Maven
+Platform Android
+Project automation harus dapat dijalankan pada Emulator atau perangkat fisik.
+3. Scope of Automation
+A. Register Feature
+ID Test Scenario Expected Result
+REG-001 Membuka halaman Register dariaplikasi Halaman pendaftaran berhasilditampilkan
+REG-002
+Melakukan validasi form Register
+dengan data tidak valid atau field
+wajib kosong
+Sistem menampilkan pesan
+validasi yang sesuai
+REG-003 Melakukan pendaftaran menggunakandata dummy yang valid Akun berhasil dibuat apabilaseluruh prasyarat verifikasitersedia
+B. Login Feature
+ID Test Scenario Expected Result
+LOG-001 Membuka halaman Login Halaman login berhasil ditampilkan
+LOG-002 Melakukan Login menggunakancredential yang valid Pengguna berhasil masuk keaplikasi
+LOG-003 Melakukan Login menggunakancredential tidak valid Sistem menolak login danmenampilkan pesan kesalahan
+4. Automation Requirements
+QA Engineer — Technical Assessment
+6
+
+PAGE 7
+1. Gunakan Java, Appium, Cucumber (Gherkin), dan Maven.
+2. Buat automation project dengan struktur yang rapi dan mudah dipahami.
+3. Gunakan file .feature untuk mendefinisikan test scenario.
+4. Implementasikan Step Definitions untuk menjalankan setiap scenario.
+5. Gunakan element locator yang sesuai dengan aplikasi.
+6. Tambahkan assertion untuk memvalidasi hasil pengujian.
+7. Gunakan explicit wait atau condition-based wait jika diperlukan.
+8. Automation harus dapat dijalankan ulang melalui Maven.
+9. Sertakan screenshot atau report hasil execution.
+Minimum target: 4 automated scenarios yang benar-benar dapat dieksekusi,
+dengan cakupan kedua fitur Login dan Register. Skenario lainnya menjadi nilai
+tambah.
+Gunakan alur, field, dan validasi yang benar-benar tersedia pada versi aplikasi
+yang diuji. Kandidat tidak perlu membuat atau mengubah aplikasi TRIV.
+5. Handling Issues & Limitations
+Apabila menemukan kendala selama pengerjaan, kandidat wajib membuat file 
+KNOWN_ISSUES.md dengan format berikut:
+Field Description
+Issue Kendala yang ditemukan
+Affected Scenario Scenario yang terdampak
+Root Cause / Indication Penyebab atau dugaan penyebab
+Troubleshooting Langkah yang sudah dicoba
+Current Status Resolved / Blocked / Unresolved
+Evidence Screenshot atau log
+Next Step Solusi atau rekomendasi tindak lanjut
+Contoh kendala yang dapat dicantumkan:
+Element tidak terdeteksi oleh Appium Inspector.
+QA Engineer — Technical Assessment
+7
+
+PAGE 8
+Android Emulator atau Appium Server tidak dapat dijalankan.
+Proses register membutuhkan OTP yang tidak dapat diakses.
+Login menggunakan test account tidak berhasil.
+Automation tidak stabil pada kondisi tertentu.
+Kandidat tetap wajib mengumpulkan hasil pekerjaannya meskipun terdapat
+scenario yang belum berhasil dijalankan.
+Setiap scenario harus dilaporkan sesuai kondisi sebenarnya: Passed, Failed,
+atau Blocked.
+Submission Guidelines
+1. GitHub Repository
+Seluruh hasil assessment wajib diunggah ke satu GitHub Repository milik
+kandidat.
+Nama repository yang disarankan:
+qa-technical-assessment-triv
+Repository dapat dibuat private dengan memberikan akses kepada reviewer, atau
+public setelah dipastikan tidak mengandung data sensitif.
+Expected Repository Structure
+qa-technical-assessment-triv/
+│
+├── Test Case/
+│   └── Test_Cases.xlsx
+│
+├── Automation/
+│   ├── pom.xml
+│   ├── src/
+│   │   └── test/
+│   │       ├── java/
+│   │       │   ├── runners/
+│   │       │   ├── steps/
+│   │       │   └── pages/
+│   │       └── resources/
+│   │           └── features/
+QA Engineer — Technical Assessment
+8
+
+PAGE 9
+│   │               ├── login.feature
+│   │               └── register.feature
+│   │
+│   └── reports/
+│
+├── KNOWN_ISSUES.md
+├── README.md
+└── .gitignore
+Struktur di atas merupakan referensi. Kandidat diperbolehkan menggunakan
+struktur lain selama tetap rapi dan mudah dijalankan.
+2. README Documentation
+README wajib berisi:
+1. Deskripsi singkat project.
+2. Daftar tools dan dependencies.
+3. Environment dan versi Android yang digunakan.
+4. Command untuk menjalankan test.
+5. Daftar scenario yang berhasil, gagal, atau terblokir.
+6. Kendala dan keterbatasan pengerjaan jika ada.
+3. Execution Evidence
+Sertakan bukti hasil pengujian berupa:
+Test execution report.
+Screenshot hasil running.
+Log error untuk scenario yang gagal.
+Video automation jika tersedia (opsional).
+Screenshot, video, dan log harus disanitasi agar tidak menampilkan informasi
+sensitif.
+4. General Rules
+Deadline pengerjaan adalah 3 hari (72 jam) sejak assessment diberikan.
+QA Engineer — Technical Assessment
+9
+
+PAGE 10
+Kandidat tidak diwajibkan mengimplementasikan framework automation yang
+kompleks.
+Kualitas test case, ketepatan assertion, dan kemampuan troubleshooting lebih
+diutamakan dibanding jumlah script.
+Penggunaan AI tools dan dokumentasi diperbolehkan, tetapi kandidat harus
+mampu menjelaskan implementasi yang dibuat.
+Jika ada bagian yang tidak dapat diselesaikan, jelaskan alasannya secara
+teknis.
+Tidak diperbolehkan memalsukan hasil execution atau menyatakan scenario
+Passed tanpa eksekusi yang berhasil.
+5. Submission
+Setelah selesai, kandidat wajib mengirimkan:
+GitHub Repository URL:
+https://github.com/<username>/qa-technical-assessment-triv
+Deadline: 72 jam setelah assessment diberikan.
+Submission Status: Completed / Partially Completed (with documented issues).
+QA Engineer — Technical Assessment
+10
