@@ -4,12 +4,12 @@
 
 Repository for the TRIV QA Engineer Technical Assessment, containing **Withdraw Rupiah** manual test cases and Android automation for **Login** and **Register**. The automation uses Appium, Cucumber/Gherkin, Maven, and Page Object Model. It supports Android emulators and physical devices and runs through Maven commands.
 
-**Submission Status: Partially Completed (with documented issues).** Five automation scenarios passed before the latest refactor. `LOG-002` is currently **BLOCKED** because no active dummy account with a usable phone number is available. Technical details are documented in [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md).
+**Submission Status: Partially Completed (with documented issues).** Five automation scenarios passed in the recorded executions before the latest refactor; these are not results from a new full-suite run. `LOG-002` is currently **BLOCKED** because no active dummy account with a usable phone number is available. Technical details are documented in [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md).
 
 ## Deliverables
 
-- **Part B:** `Test Case/Test_Cases.xlsx` and `Test Case/Test_Cases.md` — 20 Withdraw Rupiah test cases, assumptions, and requirements traceability. These test cases are **Not Executed**.
-- **Part C:** Java 17, Appium UiAutomator2, Cucumber, JUnit 5, Maven, and Page Object Model.
+- **Test Case:** `Test Case/Test_Cases.xlsx` and `Test Case/Test_Cases.md` — 20 Withdraw Rupiah test cases: 4 Positive, 10 Negative, and 6 Boundary. All are design-only and **Not Executed**.
+- **Automation:** Java 17, Appium UiAutomator2, Cucumber, JUnit 5, Maven, and Page Object Model.
 - **Known issues:** `KNOWN_ISSUES.md`.
 - **Code walkthrough:** `Automation/CODE_WALKTHROUGH.md` — explains every Page Object and Step Definition field, locator, parameter, and method.
 
@@ -20,14 +20,14 @@ Repository for the TRIV QA Engineer Technical Assessment, containing **Withdraw 
 | Java | Release 17; currently compiled with JDK 21.0.8 |
 | Maven | 3.9.16 |
 | Appium Java Client | 9.2.3 |
-| Appium server | 2.x |
+| Appium server | 3.7.0 (recorded execution) |
 | Automation driver | UiAutomator2 |
 | Cucumber | 7.20.1 |
 | JUnit | 5.10.3 |
 | Selenium API / BOM | 4.19.1 |
 | Platform | Android 14 (API 34), emulator `emulator-5554` |
 
-**Recorded execution environment:** Android 14 / API 34, Google `sdk_gphone64_x86_64`, `1080x2400`, from Appium session capabilities in the retained Cucumber report. The emulator is currently offline. Before a new execution, confirm the device has not changed with `adb -s emulator-5554 shell getprop ro.build.version.release` and `adb -s emulator-5554 shell getprop ro.build.version.sdk`.
+**Recorded execution environment:** Android 14 / API 34, Google `sdk_gphone64_x86_64`, `1080x2400`, from Appium session capabilities in the retained Cucumber report. Before a new execution, confirm the device has not changed with `adb -s emulator-5554 shell getprop ro.build.version.release` and `adb -s emulator-5554 shell getprop ro.build.version.sdk`.
 
 Exact dependency configuration is in `Automation/pom.xml`.
 
@@ -71,7 +71,7 @@ triv-qa-assessment/
 │       └── EXECUTION_REPORT.md
 ├── README.md                     # project overview and execution instructions
 ├── KNOWN_ISSUES.md               # documented blockers and limitations
-└── requirements.txt              # required tools and environment
+└── requirements.txt              # text extraction of the supplied assessment brief
 ```
 
 ## Prerequisites
@@ -79,7 +79,7 @@ triv-qa-assessment/
 1. JDK 17 and Maven.
 2. Android emulator/device with the supplied TRIV APK installed.
 3. `adb devices` shows `emulator-5554` (or configure another serial).
-4. Appium 2 and the UiAutomator2 driver.
+4. Appium and the UiAutomator2 driver; the recorded execution used Appium 3.7.0 and UiAutomator2 driver 8.7.0.
 
 ```powershell
 appium --address 127.0.0.1 --port 4723
