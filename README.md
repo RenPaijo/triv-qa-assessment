@@ -49,21 +49,29 @@ Environment: `emulator-5554`, Android, package `id.co.triv`, Java release 17, Ap
 ## Project structure
 
 ```text
-Automation/
-├── pom.xml
-├── src/test/
-│   ├── java/com/mafaa/mobile/
-│   │   ├── drivers/             # Appium session and capabilities
-│   │   ├── hooks/               # setup/teardown and evidence capture
-│   │   ├── pages/               # locators and UI actions (POM)
-│   │   ├── runners/             # Cucumber/JUnit runner
-│   │   ├── steps/               # Gherkin steps and assertions
-│   │   └── support/             # secure test-data access
-│   └── resources/features/      # Gherkin scenarios
-└── reports/
-    ├── final-evidence/          # curated latest evidence per case
-    ├── historical-evidence/     # superseded runs, not latest results
-    └── EXECUTION_REPORT.md
+triv-qa-assessment/
+├── Test Case/
+│   ├── Test_Cases.xlsx           # 20 Withdraw Rupiah test cases (source workbook)
+│   └── Test_Cases.md             # Markdown version of the test cases
+├── Automation/
+│   ├── pom.xml
+│   ├── CODE_WALKTHROUGH.md       # Page Object and Step Definition documentation
+│   ├── src/test/
+│   │   ├── java/com/mafaa/mobile/
+│   │   │   ├── drivers/          # Appium session and capabilities
+│   │   │   ├── hooks/            # setup/teardown and evidence capture
+│   │   │   ├── pages/            # locators and UI actions (POM)
+│   │   │   ├── runners/          # Cucumber/JUnit runner
+│   │   │   ├── steps/            # Gherkin steps and assertions
+│   │   │   └── support/          # secure test-data access
+│   │   └── resources/features/   # Gherkin scenarios
+│   └── reports/
+│       ├── final-evidence/       # curated latest evidence per case
+│       ├── historical-evidence/  # superseded runs, not latest results
+│       └── EXECUTION_REPORT.md
+├── README.md                     # project overview and execution instructions
+├── KNOWN_ISSUES.md               # documented blockers and limitations
+└── requirements.txt              # required tools and environment
 ```
 
 ## Prerequisites
