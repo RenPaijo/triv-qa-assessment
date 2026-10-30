@@ -8,7 +8,7 @@ Repository for the TRIV QA Engineer Technical Assessment, containing **Withdraw 
 
 ## Deliverables
 
-- **Part B:** `Test Case/Test_Cases.xlsx` — Withdraw Rupiah test cases, assumptions, and requirements traceability. See `Test Case/README.md` for coverage and workbook navigation. These test cases are **Not Executed**.
+- **Part B:** `Test Case/Test_Cases.xlsx` and `Test Case/Test_Cases.md` — 20 Withdraw Rupiah test cases, assumptions, and requirements traceability. These test cases are **Not Executed**.
 - **Part C:** Java 17, Appium UiAutomator2, Cucumber, JUnit 5, Maven, and Page Object Model.
 - **Known issues:** `KNOWN_ISSUES.md`.
 - **Code walkthrough:** `Automation/CODE_WALKTHROUGH.md` — explains every Page Object and Step Definition field, locator, parameter, and method.
