@@ -70,8 +70,7 @@ triv-qa-assessment/
 │       ├── historical-evidence/  # superseded runs, not latest results
 │       └── EXECUTION_REPORT.md
 ├── README.md                     # project overview and execution instructions
-├── KNOWN_ISSUES.md               # documented blockers and limitations
-└── requirements.txt              # text extraction of the supplied assessment brief
+└── KNOWN_ISSUES.md               # documented blockers and limitations
 ```
 
 ## Prerequisites
